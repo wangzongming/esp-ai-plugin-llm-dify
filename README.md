@@ -1,6 +1,6 @@
 # esp-ai-plugin-llm-dify [![npm](https://img.shields.io/npm/v/esp-ai-plugin-llm-dify.svg)](https://www.npmjs.com/package/esp-ai-plugin-llm-dify) [![npm](https://img.shields.io/npm/dm/esp-ai-plugin-llm-dify.svg?style=flat)](https://www.npmjs.com/package/esp-ai-plugin-llm-dify)
 
-ESP-AI LLM插件开发案例
+让 ESP-AI 支持 dify
 
 # 安装
 在你的 `ESP-AI` 项目中执行下面命令
