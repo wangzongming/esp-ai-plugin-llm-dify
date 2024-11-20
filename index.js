@@ -161,7 +161,7 @@ module.exports = {
                         retryCount++;
                         devLog && log.llm_info(`重试第 ${retryCount} 次`);
                         await new Promise(resolve => setTimeout(resolve, 1000 * retryCount));
-                        return streamCompletion();
+                        return main();
                     } else {
                         llmServerErrorCb(`Dify LLM 错误: ${error.message}`);
                     }
