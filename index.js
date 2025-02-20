@@ -5,15 +5,25 @@ module.exports = {
     name: "esp-ai-plugin-llm-dify",
     // 插件类型 LLM | TTS | IAT
     type: "LLM",
-    main({ devLog, device_id, llm_config, text, llmServerErrorCb, llm_init_messages = [], llm_historys = [], cb, llm_params_set, logWSServer, connectServerBeforeCb, connectServerCb, log }) {
+    main({ devLog, device_id, is_pre_connect, llm_config, text, llmServerErrorCb, llm_init_messages = [], llm_historys = [], cb, llm_params_set, logWSServer, connectServerBeforeCb, connectServerCb, log }) {
         try {
 
-            const { api_key, url,  ...other_config } = llm_config;
+            const { api_key, url, ...other_config } = llm_config;
 
             if (!api_key) return log.error(`请配给 LLM 配置 api_key 参数。`)
             if (!url) return log.error(`请配给 LLM 配置 url 参数。`)
 
-            let shouldClose = false; 
+
+            // 预先连接函数
+            async function preConnect() {
+
+            }
+            if (is_pre_connect) {
+                preConnect()
+                return;
+            }
+
+            let shouldClose = false;
 
             const texts = {
                 all_text: "",
@@ -123,7 +133,7 @@ module.exports = {
                     connectServerCb(false);
                     devLog && log.llm_info('LLM connect close!\n');
 
-                } catch (error) { 
+                } catch (error) {
                     llmServerErrorCb(`Dify LLM 错误: ${error.message}`);
                     connectServerCb(false);
                 }
