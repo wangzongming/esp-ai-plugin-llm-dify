@@ -4,13 +4,12 @@
     "esp-ai-plugin",
     "esp-ai-plugin-llm"
   ],
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "让 ESP-AI 支持 dify",
   "main": "index.js",
   "scripts": {},
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "axios": "^1.7.7"
+  "dependencies": { 
   }
 }
